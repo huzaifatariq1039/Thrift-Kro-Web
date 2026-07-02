@@ -6,7 +6,6 @@ import Image from "next/image";
 import {
   Shield,
   Sparkles,
-  MessageCircle,
   ArrowRight,
   Check,
   Lock,
