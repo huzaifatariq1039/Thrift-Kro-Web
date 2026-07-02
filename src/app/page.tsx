@@ -131,12 +131,12 @@ function Hero() {
       className="pt-[140px] pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto relative"
     >
       {/* Subtle Background Watermark */}
-      <div className="absolute top-[100px] lg:top-[140px] left-1/2 -translate-x-1/2 w-full flex justify-center pointer-events-none select-none z-0 opacity-80 mix-blend-multiply">
+      <div className="absolute top-[100px] lg:top-[140px] left-1/2 -translate-x-1/2 w-full flex justify-center pointer-events-none select-none z-0 opacity-80">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="text-[100px] sm:text-[160px] md:text-[220px] lg:text-[300px] font-black text-[#121212]/[0.025] uppercase tracking-tighter leading-none whitespace-nowrap"
+          className="text-[100px] sm:text-[160px] md:text-[220px] lg:text-[300px] font-black text-[#FF5C00]/[0.04] uppercase tracking-tighter leading-none whitespace-nowrap"
         >
           Coming Soon
         </motion.div>
