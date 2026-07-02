@@ -85,8 +85,12 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
-        <a href="#" className="block">
-          <Image src="/logo.png" alt="Thrift Kro Logo" width={130} height={36} className="object-contain h-9 w-auto" priority />
+        <a href="#" className="flex items-center gap-3">
+          <Image src="/logo.png" alt="Thrift Kro Logo" width={36} height={36} className="object-contain h-9 w-9 rounded-md" priority />
+          <span className="text-[22px] font-black tracking-tighter uppercase mt-0.5">
+            <span className="text-[#121212]">Thrift</span>
+            <span className="text-[#FF5C00]">Kro</span>
+          </span>
         </a>
         <a
           href="#waitlist"
