@@ -143,7 +143,7 @@ function Hero() {
           <motion.h1
             variants={fadeUp}
             custom={1}
-            className="text-[42px] sm:text-[52px] md:text-[60px] lg:text-[64px] font-bold leading-[1.05] tracking-[-0.03em] text-[#121212]"
+            className="text-[52px] sm:text-[64px] md:text-[76px] lg:text-[84px] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#121212] drop-shadow-sm"
           >
             Try kro.
             <br />
