@@ -90,7 +90,7 @@ function Navbar() {
         </a>
         <a
           href="#waitlist"
-          className="bg-[#FF5C00] hover:bg-[#E55200] text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
+          className="bg-[#121212] hover:bg-black text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
         >
           Join the Beta
         </a>
@@ -128,45 +128,58 @@ function Hero() {
   return (
     <Section
       id="hero"
-      className="pt-[140px] pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto"
+      className="relative pt-[140px] pb-24 md:pb-32 px-6 md:px-10 overflow-hidden"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Background Gradient & Grain */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#FFCA58] via-[#FF8A00] to-[#E55200] z-0" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-15 mix-blend-overlay pointer-events-none z-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left - Copy */}
-        <div>
-          <motion.div variants={fadeUp} custom={0}>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#E6E6E1] text-[#7A7A75] text-xs font-medium px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#FF5C00] animate-pulse" />
-              Beta launching Q3 2026
-            </span>
+        <div className="text-[#121212]">
+          <motion.div variants={fadeUp} custom={0} className="mb-6 flex flex-col items-start">
+            {/* Infinity Hanger SVG */}
+            <svg width="70" height="70" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-4 text-[#121212]">
+              <path d="M50 20 C50 20 58 16 60 26 C62 36 50 38 50 48" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M25 48 L75 48" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <circle cx="25" cy="48" r="2.5" fill="currentColor"/>
+              <circle cx="75" cy="48" r="2.5" fill="currentColor"/>
+              <path d="M50 60 L45 55 C35 45 20 45 20 60 C20 75 35 75 45 65 L55 55 C65 45 80 45 80 60 C80 75 65 75 55 65 L50 60 Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <h4 className="text-[14px] md:text-[16px] font-bold tracking-[0.4em] uppercase mb-2">
+              Thrift Kro
+            </h4>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
             custom={1}
-            className="text-[52px] sm:text-[64px] md:text-[76px] lg:text-[84px] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#121212] drop-shadow-sm"
+            className="text-[72px] sm:text-[90px] md:text-[100px] lg:text-[110px] font-black leading-[0.85] tracking-[-0.02em] uppercase drop-shadow-sm text-[#121212]"
           >
-            Try kro.
+            Coming
             <br />
-            Buy kro.
-            <br />
-            <span className="gradient-text-orange">Thrift kro.</span>
+            Soon
           </motion.h1>
+
+          <motion.div variants={fadeUp} custom={2} className="flex items-center gap-4 mt-6 mb-6">
+            <div className="h-[2px] w-12 bg-[#121212]/30"></div>
+            <span className="font-serif italic text-2xl text-[#121212]">stay tuned</span>
+            <div className="h-[2px] w-12 bg-[#121212]/30"></div>
+          </motion.div>
 
           <motion.p
             variants={fadeUp}
-            custom={2}
-            className="mt-6 text-[17px] md:text-[18px] leading-relaxed text-[#7A7A75] max-w-xl"
+            custom={3}
+            className="mt-6 text-[16px] md:text-[18px] leading-relaxed text-[#121212]/80 max-w-xl font-medium"
           >
-            Pakistan&apos;s first AI-powered secondhand streetwear marketplace.
-            Built for Gen-Z. See exactly how pieces fit before you buy with our
-            virtual try-on. Upgrade your closet without destroying the planet.
+            We&apos;re putting the final touches on Pakistan&apos;s first AI-powered secondhand streetwear marketplace. Scroll down to see what we&apos;re building — then drop your details to get early access.
           </motion.p>
 
           {/* Email Form */}
           <motion.form
             name="hero-waitlist"
             variants={fadeUp}
-            custom={3}
+            custom={4}
             onSubmit={handleSubmit}
             className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-0"
           >
@@ -180,13 +193,13 @@ function Hero() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email..."
-                className="w-full h-[52px] pl-5 pr-4 bg-white border border-[#E6E6E1] sm:border-r-0 rounded-full sm:rounded-r-none text-[15px] text-[#121212] placeholder:text-[#B0B0AB] focus:border-[#FF5C00] transition-colors duration-200"
+                className="w-full h-[54px] pl-6 pr-4 bg-white/90 backdrop-blur-sm border-0 sm:border-r-0 rounded-full sm:rounded-r-none text-[15px] text-[#121212] placeholder:text-[#121212]/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#121212] transition-all duration-200 shadow-sm"
               />
             </div>
             <button
               id="hero-cta-button"
               type="submit"
-              className="h-[52px] px-7 bg-[#FF5C00] hover:bg-[#E55200] text-white font-semibold text-[15px] rounded-full sm:rounded-l-none flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap cta-glow"
+              className="h-[54px] px-8 bg-[#121212] hover:bg-black text-white font-bold tracking-[0.1em] uppercase text-[12px] md:text-[13px] rounded-full sm:rounded-l-none flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap shadow-xl"
             >
               {submitted ? (
                 <>
@@ -194,19 +207,19 @@ function Hero() {
                 </>
               ) : (
                 <>
-                  Get Early Access <ArrowRight className="w-4 h-4" />
+                  Try Kro • Buy Kro <ArrowRight className="w-4 h-4 ml-1" />
                 </>
               )}
             </button>
           </motion.form>
 
-          <motion.div variants={fadeUp} custom={4} className="mt-6 flex items-center gap-4 text-xs text-[#7A7A75]">
+          <motion.div variants={fadeUp} custom={5} className="mt-6 flex items-center gap-4 text-[11px] font-bold text-[#121212]/60 uppercase tracking-widest">
             <span className="flex items-center gap-1.5">
               <Lock className="w-3.5 h-3.5" /> Zero spam
             </span>
-            <span className="w-1 h-1 rounded-full bg-[#D1D1CC]" />
+            <span className="w-1 h-1 rounded-full bg-[#121212]/30" />
             <span className="flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5" /> Launch updates only
+              <Zap className="w-3.5 h-3.5" /> Launch updates
             </span>
           </motion.div>
         </div>
@@ -221,7 +234,7 @@ function Hero() {
             initial={{ opacity: 0, y: 40, rotate: -3 }}
             animate={{ opacity: 1, y: 0, rotate: -3 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-            className="absolute top-4 left-8 w-[220px] bg-white border border-[#E6E6E1] rounded-[14px] overflow-hidden transition-transform duration-300 card-lift animate-float shadow-xl shadow-black/5"
+            className="absolute top-4 left-8 w-[220px] bg-white border border-[#E6E6E1] rounded-[14px] overflow-hidden transition-transform duration-300 card-lift animate-float shadow-2xl shadow-black/10"
           >
             <div className="relative w-full h-[200px] bg-[#F6F6F4]">
               <Image
@@ -246,7 +259,7 @@ function Hero() {
             initial={{ opacity: 0, y: 40, rotate: 2 }}
             animate={{ opacity: 1, y: 0, rotate: 2 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-            className="absolute top-[180px] right-4 w-[200px] bg-white border border-[#E6E6E1] rounded-[14px] p-5 transition-transform duration-300 card-lift animate-float-delayed shadow-xl shadow-black/5"
+            className="absolute top-[180px] right-4 w-[200px] bg-white border border-[#E6E6E1] rounded-[14px] p-5 transition-transform duration-300 card-lift animate-float-delayed shadow-2xl shadow-black/10"
           >
             <div className="w-10 h-10 rounded-full bg-[#FFF0E6] flex items-center justify-center mb-3">
               <Shield className="w-5 h-5 text-[#FF5C00]" />
@@ -268,7 +281,7 @@ function Hero() {
             initial={{ opacity: 0, y: 40, rotate: -1 }}
             animate={{ opacity: 1, y: 0, rotate: -1 }}
             transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-            className="absolute bottom-4 left-[60px] w-[210px] bg-white border border-[#E6E6E1] rounded-[14px] p-5 transition-transform duration-300 card-lift animate-float-slow shadow-xl shadow-black/5"
+            className="absolute bottom-4 left-[60px] w-[210px] bg-white border border-[#E6E6E1] rounded-[14px] p-5 transition-transform duration-300 card-lift animate-float-slow shadow-2xl shadow-black/10"
           >
             <div className="w-10 h-10 rounded-full bg-[#E6EEFF] flex items-center justify-center mb-3">
               <Sparkles className="w-5 h-5 text-[#0047FF]" />
