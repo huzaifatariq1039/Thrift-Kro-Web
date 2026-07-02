@@ -128,16 +128,28 @@ function Hero() {
   return (
     <Section
       id="hero"
-      className="pt-[140px] pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto"
+      className="pt-[140px] pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto relative"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Subtle Background Watermark */}
+      <div className="absolute top-[100px] lg:top-[140px] left-1/2 -translate-x-1/2 w-full flex justify-center pointer-events-none select-none z-0 opacity-80 mix-blend-multiply">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="text-[100px] sm:text-[160px] md:text-[220px] lg:text-[300px] font-black text-[#121212]/[0.025] uppercase tracking-tighter leading-none whitespace-nowrap"
+        >
+          Coming Soon
+        </motion.div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left - Copy */}
         <div>
           <motion.div variants={fadeUp} custom={0}>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#E6E6E1] text-[#7A7A75] text-xs font-medium px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#FF5C00] animate-pulse" />
-              Beta launching Q3 2026
-            </span>
+            <div className="inline-flex items-center gap-2.5 bg-[#121212] text-white text-[12px] md:text-[13px] font-bold px-5 py-2.5 rounded-full mb-6 uppercase tracking-[0.15em] shadow-xl hover:scale-105 transition-transform cursor-default">
+              <Sparkles className="w-4 h-4 text-[#FF5C00]" />
+              Coming Soon
+            </div>
           </motion.div>
 
           <motion.h1
