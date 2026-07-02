@@ -643,7 +643,7 @@ function Footer() {
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/thriftkaroooo?igsh=cDlmMzJpNGM1eXVj"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full border border-[#E6E6E1] flex items-center justify-center text-[#7A7A75] hover:text-[#121212] hover:border-[#D1D1CC] transition-all duration-200"
@@ -652,7 +652,7 @@ function Footer() {
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/thrift-kro"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full border border-[#E6E6E1] flex items-center justify-center text-[#7A7A75] hover:text-[#121212] hover:border-[#D1D1CC] transition-all duration-200"
