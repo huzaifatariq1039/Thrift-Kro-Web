@@ -165,8 +165,6 @@ function Hero() {
           {/* Email Form */}
           <motion.form
             name="hero-waitlist"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
             variants={fadeUp}
             custom={3}
             onSubmit={handleSubmit}
@@ -552,8 +550,6 @@ function WaitlistForm() {
         ) : (
           <motion.form
             name="main-waitlist"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
             variants={fadeUp}
             custom={2}
             onSubmit={handleSubmit}

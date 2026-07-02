@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Netlify Forms Definitions</title>
+  </head>
+  <body>
+    <!-- 
+      This file is required by @netlify/plugin-nextjs v5+ to register forms 
+      in the Next.js App Router environment. 
+      See: https://ntl.fyi/next-runtime-forms-migration 
+    -->
+    <form name="hero-waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+    </form>
+    
+    <form name="main-waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="role" />
+    </form>
+  </body>
+</html>
