@@ -158,8 +158,8 @@ function Hero() {
             className="mt-6 text-[17px] md:text-[18px] leading-relaxed text-[#7A7A75] max-w-xl"
           >
             Pakistan&apos;s first AI-powered secondhand streetwear marketplace.
-            Built for Gen-Z. Backed by an ultra-secure Escrow vault. Upgrade your
-            closet without destroying the planet.
+            Built for Gen-Z. See exactly how pieces fit before you buy with our
+            virtual try-on. Upgrade your closet without destroying the planet.
           </motion.p>
 
           {/* Email Form */}
