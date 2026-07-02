@@ -181,6 +181,7 @@ function Hero() {
           {/* Email Form */}
           <motion.form
             name="hero-waitlist"
+            data-netlify="true"
             variants={fadeUp}
             custom={3}
             onSubmit={handleSubmit}
@@ -566,12 +567,14 @@ function WaitlistForm() {
         ) : (
           <motion.form
             name="main-waitlist"
+            data-netlify="true"
             variants={fadeUp}
             custom={2}
             onSubmit={handleSubmit}
             className="space-y-5"
           >
             <input type="hidden" name="form-name" value="main-waitlist" />
+            <input type="hidden" name="role" value={role} />
             
             <div>
               <label htmlFor="waitlist-name" className="block text-[13px] font-medium text-[#121212] mb-2">
