@@ -111,15 +111,26 @@ function Hero() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      const formData = new URLSearchParams();
-      formData.append("form-name", "hero-waitlist");
-      formData.append("email", email);
+      const payload = {
+        data: {
+          id: Date.now().toString(),
+          name: "N/A",
+          email: email,
+          role: "buyer",
+          formName: "hero-waitlist",
+          date: new Date().toISOString()
+        }
+      };
 
-      fetch("/", {
+      fetch("https://sheetdb.io/api/v1/7y5uelzi2ztth", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData.toString()
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       })
+      .then((res) => res.json())
       .then(() => {
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 3000);
@@ -180,14 +191,11 @@ function Hero() {
 
           {/* Email Form */}
           <motion.form
-            name="hero-waitlist"
-            data-netlify="true"
             variants={fadeUp}
             custom={3}
             onSubmit={handleSubmit}
             className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-0"
           >
-            <input type="hidden" name="form-name" value="hero-waitlist" />
             <div className="relative flex-1">
               <input
                 id="hero-email-input"
@@ -497,17 +505,26 @@ function WaitlistForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (name && email) {
-      const formData = new URLSearchParams();
-      formData.append("form-name", "main-waitlist");
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("role", role);
+      const payload = {
+        data: {
+          id: Date.now().toString(),
+          name: name,
+          email: email,
+          role: role,
+          formName: "main-waitlist",
+          date: new Date().toISOString()
+        }
+      };
 
-      fetch("/", {
+      fetch("https://sheetdb.io/api/v1/7y5uelzi2ztth", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData.toString()
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       })
+      .then((res) => res.json())
       .then(() => {
         setSubmitted(true);
         setTimeout(() => {
@@ -566,16 +583,11 @@ function WaitlistForm() {
           </motion.div>
         ) : (
           <motion.form
-            name="main-waitlist"
-            data-netlify="true"
             variants={fadeUp}
             custom={2}
             onSubmit={handleSubmit}
             className="space-y-5"
           >
-            <input type="hidden" name="form-name" value="main-waitlist" />
-            <input type="hidden" name="role" value={role} />
-            
             <div>
               <label htmlFor="waitlist-name" className="block text-[13px] font-medium text-[#121212] mb-2">
                 Full name
