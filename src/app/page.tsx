@@ -85,16 +85,16 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Thrift Kro Logo" width={36} height={36} className="object-contain h-9 w-9 rounded-md" priority />
-          <span className="text-[22px] font-black tracking-tighter uppercase mt-0.5">
+        <a href="#" className="flex items-center gap-2 sm:gap-3">
+          <Image src="/logo.png" alt="Thrift Kro Logo" width={36} height={36} className="object-contain h-8 w-8 sm:h-9 sm:w-9 rounded-md" priority />
+          <span className="text-[18px] sm:text-[22px] font-black tracking-tighter uppercase mt-0.5">
             <span className="text-[#121212]">Thrift</span>
             <span className="text-[#FF5C00]">Kro</span>
           </span>
         </a>
         <a
           href="#waitlist"
-          className="bg-[#FF5C00] hover:bg-[#E55200] text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
+          className="bg-[#FF5C00] hover:bg-[#E55200] text-white text-[13px] sm:text-sm font-semibold px-4 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] whitespace-nowrap"
         >
           Join the Beta
         </a>
@@ -105,41 +105,6 @@ function Navbar() {
 
 /* ─── Hero Section ─── */
 function Hero() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      const payload = {
-        data: {
-          id: Date.now().toString(),
-          name: "N/A",
-          email: email,
-          role: "buyer",
-          formName: "hero-waitlist",
-          date: new Date().toISOString()
-        }
-      };
-
-      fetch("https://sheetdb.io/api/v1/7y5uelzi2ztth", {
-        method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      })
-      .then((res) => res.json())
-      .then(() => {
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 3000);
-        setEmail("");
-      })
-      .catch((error) => console.error(error));
-    }
-  };
-
   return (
     <Section
       id="hero"
@@ -170,7 +135,7 @@ function Hero() {
           <motion.h1
             variants={fadeUp}
             custom={1}
-            className="text-[52px] sm:text-[64px] md:text-[76px] lg:text-[84px] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#121212] drop-shadow-sm"
+            className="text-[44px] sm:text-[56px] md:text-[76px] lg:text-[84px] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#121212] drop-shadow-sm"
           >
             Try kro.
             <br />
@@ -189,50 +154,14 @@ function Hero() {
             virtual try-on. Upgrade your closet without destroying the planet.
           </motion.p>
 
-          {/* Email Form */}
-          <motion.form
-            variants={fadeUp}
-            custom={3}
-            onSubmit={handleSubmit}
-            className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-0"
-          >
-            <div className="relative flex-1">
-              <input
-                id="hero-email-input"
-                name="email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email..."
-                className="w-full h-[52px] pl-5 pr-4 bg-white border border-[#E6E6E1] sm:border-r-0 rounded-full sm:rounded-r-none text-[15px] text-[#121212] placeholder:text-[#B0B0AB] focus:border-[#FF5C00] transition-colors duration-200"
-              />
-            </div>
-            <button
-              id="hero-cta-button"
-              type="submit"
-              className="h-[52px] px-7 bg-[#FF5C00] hover:bg-[#E55200] text-white font-semibold text-[15px] rounded-full sm:rounded-l-none flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap cta-glow"
+          {/* CTA Button */}
+          <motion.div variants={fadeUp} custom={3} className="mt-8">
+            <a
+              href="#waitlist"
+              className="inline-flex h-[52px] px-8 bg-[#FF5C00] hover:bg-[#E55200] text-white font-semibold text-[15px] rounded-full items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cta-glow"
             >
-              {submitted ? (
-                <>
-                  <Check className="w-4 h-4" /> You&apos;re in!
-                </>
-              ) : (
-                <>
-                  Get Early Access <ArrowRight className="w-4 h-4" />
-                </>
-              )}
-            </button>
-          </motion.form>
-
-          <motion.div variants={fadeUp} custom={4} className="mt-6 flex items-center gap-4 text-xs text-[#7A7A75]">
-            <span className="flex items-center gap-1.5">
-              <Lock className="w-3.5 h-3.5" /> Zero spam
-            </span>
-            <span className="w-1 h-1 rounded-full bg-[#D1D1CC]" />
-            <span className="flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5" /> Launch updates only
-            </span>
+              Get Early Access <ArrowRight className="w-4 h-4" />
+            </a>
           </motion.div>
         </div>
 
@@ -702,7 +631,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 grain-overlay relative">
+      <main className="flex-1 grain-overlay relative overflow-x-hidden">
         <Hero />
         <MarqueeStrip />
         <FeaturedCarousel />
