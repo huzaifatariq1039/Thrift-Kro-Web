@@ -116,7 +116,7 @@ function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="text-[100px] sm:text-[160px] md:text-[220px] lg:text-[300px] font-black text-[#FF5C00]/[0.04] uppercase tracking-tighter leading-none whitespace-nowrap"
+          className="text-[100px] sm:text-[160px] md:text-[220px] lg:text-[300px] font-black text-[#FF5C00]/[0.15] uppercase tracking-tighter leading-none whitespace-nowrap"
         >
           Coming Soon
         </motion.div>
@@ -124,14 +124,7 @@ function Hero() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left - Copy */}
-        <div>
-          <motion.div variants={fadeUp} custom={0}>
-            <div className="inline-flex items-center gap-2.5 bg-[#121212] text-white text-[12px] md:text-[13px] font-bold px-5 py-2.5 rounded-full mb-6 uppercase tracking-[0.15em] shadow-xl hover:scale-105 transition-transform cursor-default">
-              <Sparkles className="w-4 h-4 text-[#FF5C00]" />
-              Coming Soon
-            </div>
-          </motion.div>
-
+        <div className="pt-2">
           <motion.h1
             variants={fadeUp}
             custom={1}
