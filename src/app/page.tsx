@@ -116,7 +116,7 @@ function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="text-[100px] sm:text-[160px] md:text-[220px] lg:text-[300px] font-black text-[#FF5C00]/[0.15] uppercase tracking-tighter leading-none whitespace-nowrap"
+          className="text-[100px] sm:text-[160px] md:text-[220px] lg:text-[300px] font-black text-[#FF5C00]/[0.08] uppercase tracking-tighter leading-none whitespace-nowrap"
         >
           Coming Soon
         </motion.div>
